@@ -52,9 +52,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btn_login'])) {
             
             // Redirect based on role
             if ($role == 'admin') {
-                header("location:/Cms_Project/admin/index.php");
+                header("location: index.php");
             } else {
-                header("location:/Cms_Project/article/index.php");
+                header("location:../article/index.php");
             }
         } else {
             // Invalid password
