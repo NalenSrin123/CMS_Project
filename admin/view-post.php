@@ -1,5 +1,29 @@
 <?php 
     include('sidebar.php');
+    function getAllNews(){
+        $conn = new mysqli('localhost', 'root', '', 'db_project');
+        $selectNews="SELECT * ,`user_name` FROM `tbl__news` INNER JOIN `tbl_user` WHERE `userID` = `user_id` ORDER BY `id` DESC";
+        $result =$conn->query($selectNews);
+        while($row=$result->fetch_assoc()){
+            echo '
+                <tr>
+                    <td>'.$row['title'].'</td>
+                    <td>'.$row['post_type'].'</td>
+                    <td>'.$row['category'].'</td>
+                    <td><img width="80px" src="./assets/image/'.$row['thumbnail'].'"/></td>
+                    <td>'.$row['create_at'].'</td>
+                    <td>'.$row['user_name'].'</td>
+                    <td width="150px">
+                        <a href=""class="btn btn-primary">Update</a>
+                        <button type="button" remove-id="'.$row['id'].'" class="btn btn-danger btn-remove" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Remove
+                        </button>
+                    </td>
+                </tr>
+            ';
+        }
+    }
+
 ?>
                 <div class="col-10">
                     <div class="content-right">
@@ -14,54 +38,17 @@
                                         <button type="submit">
                                         <img src="search.png" alt=""></button>
                                     </div> -->
-                                    <table class="table" border="1px">
+                                    <table class="table text-center align-middle" border="1px">
                                         <tr>
                                             <th>Title</th>
                                             <th>Post Type</th>
                                             <th>Categories</th>
                                             <th>Thumbnail</th>
                                             <th>Publish Date</th>
+                                            <th>Admin</th>
                                             <th>Actions</th>
                                         </tr>
-                                        <tr>
-                                            <td>Why do we use it?</td>
-                                            <td>Sport</td>
-                                            <td>National</td>
-                                            <td><img src="https://via.placeholder.com/80"/></td>
-                                            <td>27/June/2022</td>
-                                            <td width="150px">
-                                                <a href=""class="btn btn-primary">Update</a>
-                                                <button type="button" remove-id="1" class="btn btn-danger btn-remove" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    Remove
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Why do we use it?</td>
-                                            <td>Sport</td>
-                                            <td>National</td>
-                                            <td><img src="https://via.placeholder.com/80"/></td>
-                                            <td>27/June/2022</td>
-                                            <td width="150px">
-                                                <a href=""class="btn btn-primary">Update</a>
-                                                <button type="button" remove-id="2" class="btn btn-danger btn-remove" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    Remove
-                                                </button>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Why do we use it?</td>
-                                            <td>Sport</td>
-                                            <td>National</td>
-                                            <td><img src="https://via.placeholder.com/80"/></td>
-                                            <td>27/June/2022</td>
-                                            <td width="150px">
-                                                <a href=""class="btn btn-primary">Update</a>
-                                                <button type="button" remove-id="3" class="btn btn-danger btn-remove" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                                    Remove
-                                                </button>
-                                            </td>
-                                        </tr>
+                                         <?php getAllNews() ?>   
                                     </table>
                                     <ul class="pagination">
                                         <li>
@@ -82,7 +69,7 @@
                                                 <div class="modal-footer">
                                                     <form action="" method="post">
                                                         <input type="hidden" class="value_remove" name="remove_id">
-                                                        <button type="submit" class="btn btn-danger">Yes</button>
+                                                        <button type="submit" class="btn btn-danger" name="delete">Yes</button>
                                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>  
                                                     </form>
                                                 </div>
@@ -99,3 +86,12 @@
     </main>
 </body>
 </html>
+<?php 
+    if(isset($_POST['delete'])){
+        $news_id=$_POST['remove_id'];
+        $conn = new mysqli('localhost', 'root', '', 'db_project');
+        $delete_new="DELETE FROM `tbl__news` WHERE `id`='$news_id'";
+        $conn->query($delete_new);
+        echo "<script>window.location.href='view-post.php'</script>";
+    }
+?>

@@ -9,12 +9,13 @@ jQuery('document').ready(function(){
         var data = $(this).attr('remove-id');
         $('.value_remove').val(data);
     });
+   
 
-    // @tiny
-    tinymce.init({
-        selector: 'textarea',
-        plugins: 'advlist autolink lists link image charmap preview anchor pagebreak',
-        toolbar_mode: 'floating',
-    });
+    // // @tiny
+    // tinymce.init({
+    //     selector: 'textarea',
+    //     plugins: 'advlist autolink lists link image charmap preview anchor pagebreak',
+    //     toolbar_mode: 'floating',
+    // });
 
 });

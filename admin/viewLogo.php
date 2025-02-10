@@ -36,7 +36,7 @@
                                                         <td>'.$row['update_at'].'</td>
                                                 
                                                         <td width="150px">
-                                                            <a href=""class="btn btn-primary rounded">Update</a>
+                                                            <a href="editLogo.php?id='.$row['id'].'" class="btn btn-primary rounded" >Update</a>
                                                             <button type="button" remove-id="'.$row['id'].'" class="btn btn-danger btn-remove rounded" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                                                 Remove
                                                             </button>

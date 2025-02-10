@@ -18,7 +18,7 @@
     <script src="assets/js/bootstrap.js"></script>
 
     <!-- @tinyACE -->
-    <script src="https://cdn.tiny.cloud/1/5gqcgv8u6c8ejg1eg27ziagpv8d8uricc4gc9rhkbasi2nc4/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    <!-- <script src="https://cdn.tiny.cloud/1/5gqcgv8u6c8ejg1eg27ziagpv8d8uricc4gc9rhkbasi2nc4/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script> -->
 
 </head>
 <body>
@@ -56,13 +56,13 @@
                             <ul>
                                 <li class="parent">
                                     <a class="parent" href="javascript:void(0)">
-                                        <span>MAIN MENU</span>
+                                        <span>NEWS</span>
                                         <img src="assets/icon/arrow.png" alt="">
                                     </a>
                                     <ul class="child">
                                         <li>
-                                            <a href="view-post.php">View Post</a>
-                                            <a href="add-post.php">Add New</a>
+                                            <a href="view-post.php">View News</a>
+                                            <a href="add-post.php" id="addNews">Add News</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -75,6 +75,17 @@
                                         <li>
                                             <a href="viewLogo.php">View Logo</a>
                                             <a href="addLogo.php">Add Logo</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li class="parent">
+                                    <a class="parent" href="javascript:void(0)">
+                                        <span>Feedback</span>
+                                        <img src="assets/icon/arrow.png" alt="">
+                                    </a>
+                                    <ul class="child">
+                                        <li>
+                                            <a href="">View Feedback</a>
                                         </li>
                                     </ul>
                                 </li>
