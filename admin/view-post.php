@@ -7,14 +7,14 @@
         while($row=$result->fetch_assoc()){
             echo '
                 <tr>
-                    <td>'.$row['title'].'</td>
+                    <td style="white-space: nowrap; overflow: hidden;  text-overflow: ellipsis;   width: 200px;">'.$row['title'].'</td>
                     <td>'.$row['post_type'].'</td>
                     <td>'.$row['category'].'</td>
                     <td><img width="80px" src="./assets/image/'.$row['thumbnail'].'"/></td>
                     <td>'.$row['create_at'].'</td>
                     <td>'.$row['user_name'].'</td>
                     <td width="150px">
-                        <a href=""class="btn btn-primary">Update</a>
+                        <a href="editNews.php?id='.$row['id'].'" class="btn btn-primary">Update</a>
                         <button type="button" remove-id="'.$row['id'].'" class="btn btn-danger btn-remove" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             Remove
                         </button>
@@ -38,7 +38,7 @@
                                         <button type="submit">
                                         <img src="search.png" alt=""></button>
                                     </div> -->
-                                    <table class="table text-center align-middle" border="1px">
+                                    <table class="table text-center align-middle" border="1px" style="table-layout: fixed;">
                                         <tr>
                                             <th>Title</th>
                                             <th>Post Type</th>
