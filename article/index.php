@@ -1,4 +1,6 @@
-<?php include('header.php'); ?>
+<?php include('header.php');
+
+ ?>
 <main class="home">
     <section class="trending">
         <div class="container">
@@ -11,10 +13,11 @@
                         <div class="content-right">
                             <marquee behavior="" direction="left">
                                 <div class="text-news">
-                                    <i class="fas fa-angle-double-right"></i>
+                                    <?php get_treding() ?>
+                                    <!-- <i class="fas fa-angle-double-right"></i>
                                     <a href="">ពិធីសម្ពោធដាក់ឱ្យប្រើប្រាស់នូវកំណាត់ផ្លូវជាតិលេខ២៦ ប្រវែងជិត ៦៤គីឡូម៉ែត្រ </a> &ensp;
                                     <i class="fas fa-angle-double-right"></i>
-                                    <a href="">ពិធីសម្ពោធដាក់ឱ្យប្រើប្រាស់នូវកំណាត់ផ្លូវជាតិលេខ២៦ ប្រវែងជិត ៦៤គីឡូម៉ែត្រ </a>
+                                    <a href="">ពិធីសម្ពោធដាក់ឱ្យប្រើប្រាស់នូវកំណាត់ផ្លូវជាតិលេខ២៦ ប្រវែងជិត ៦៤គីឡូម៉ែត្រ </a> -->
                                     
                                 </div>
                             </marquee>
@@ -28,7 +31,8 @@
     <section class="latest-news">
         <div class="container">
             <div class="row">
-                <div class="col-8 content-left">
+                <?php get_main_news() ?>
+                <!-- <div class="col-8 content-left">
                     <figure>
                         <a href="news-detail.php">
                             <div class="thumbnail">
@@ -39,9 +43,10 @@
                             </div>
                         </a>
                     </figure>
-                </div>
+                </div> -->
                 <div class="col-4 content-right">
-                    <div class="col-12">
+                    <?php get_sub_news() ?>
+                    <!-- <div class="col-12">
                         <figure>
                             <a href="">
                                 <div class="thumbnail">
@@ -64,7 +69,7 @@
                                 </div>
                             </a>
                         </figure>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
